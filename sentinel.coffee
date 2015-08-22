@@ -11,5 +11,7 @@ check = ->
   for label, targetData of list
     checker label, targetData, alert
 
+check()
+
 setInterval check, checkInterval
 setInterval confirmAlive, aliveConfirmationInterval
