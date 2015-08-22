@@ -8,4 +8,6 @@ module.exports =
     protocol: 'http'
     host: 'localhost'
     port: 5984
-    fullHost: -> "#{@protocol}://#{@host}:#{@port}"
+    username: 'couchusername'
+    password: 'couchpassword'
+    fullHost: -> "#{@protocol}://#{@username}:#{@password}@#{@host}:#{@port}"

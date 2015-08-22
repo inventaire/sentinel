@@ -17,8 +17,9 @@ sendMsg = (msg)->
 module.exports =
   alert: (label, err)->
     now = date()
-    sendMsg "[SERVER ALERT]\n#{label}: #{err.message}\n#{now}"
-    .then (res)-> _.warn now, '- alert sent'
+    msg = "[SERVER ALERT]\n#{label}: #{err.message}\n#{now}"
+    sendMsg msg
+    .then (res)-> _.warn msg, 'alert sent'
     .catch _.Error('alert error')
 
   confirmAlive: ->

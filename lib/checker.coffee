@@ -5,6 +5,7 @@
 
 breq = require 'bluereq'
 date = require './date'
+_ = require './utils'
 
 
 module.exports = (label, targetData, alert)->
@@ -16,6 +17,7 @@ module.exports = (label, targetData, alert)->
   .then (res)->
     { statusCode } = res
     unless res.statusCode is status
+      _.warn res.body, 'res'
       throw statusError res
 
     passTests tests, res
@@ -29,7 +31,7 @@ passTests = (tests, res)->
       throw new Error "#{label} error"
 
 statusError = (res)->
-  err = new Error 'wrong HTTP statusCode'
+  err = new Error "wrong HTTP statusCode: #{res.statusCode}"
   err.res = res
   err.statusCode = res.statusCode
   return err
