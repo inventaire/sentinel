@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./scripts/start",
     "daemon-start": "./scripts/daemon-start",
-    "reload": "touch reload"
+    "reload": "touch reload.coffee"
   },
   "keywords": [
     "services",
@@ -25,7 +25,7 @@
     "bluereq": "^0.2.1",
     "config": "^1.15.0",
     "inv-dbs-list": "^1.0.0",
-    "inv-loggers": "^2.0.0",
-    "inv-utils": "^1.0.0"
+    "inv-loggers": "^2.0.1",
+    "inv-utils": "^1.3.1"
   }
 }

@@ -1,1 +1,1 @@
-supervisor -w reload -- ./sentinel.coffee
+supervisor -w reload.coffee -- ./sentinel.coffee
