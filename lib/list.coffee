@@ -43,10 +43,3 @@ dbUpToDate = (db)->
   not _.expired secondsToMs(db.updated_on), 5*60*1000
 
 secondsToMs = (sec)-> sec * 1000
-
-
-list.invWdq =
-  url: 'http://localhost:5353/claim?p=P50&q=Q692&agent=sentinel'
-  tests:
-    content: (res)->
-      res.body.items.length >= 198
