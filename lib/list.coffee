@@ -1,8 +1,8 @@
 CONFIG = require 'config'
 __ = CONFIG.root
 _ = require './utils'
-dbsList = require('inv-dbs-list').default
-dbsNum = Object.keys(dbsList).length
+# keep in sync with inventaire/inventaire@server/db/couch/list.coffee default list
+dbsNum = 7
 
 module.exports = list = {}
 
