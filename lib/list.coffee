@@ -6,15 +6,17 @@ dbsNum = Object.keys(dbsList).length
 
 module.exports = list = {}
 
+# adding a agent=sentinel parameter to make it easier to spot in logs
+
 list.nginx =
-  url: "https://inventaire.io/"
+  url: "https://inventaire.io/?agent=sentinel"
   tests:
     content: (res)->
       /og:image/.test res.body
 
 
 list.express =
-  url: "https://inventaire.io/api/items/public?action=last-public-items"
+  url: "https://inventaire.io/api/items/public?action=last-public-items&agent=sentinel"
   tests:
     content: (res)->
       { users, items } = res.body
@@ -22,14 +24,14 @@ list.express =
 
 
 list.prerender =
-  url: "https://inventaire.io/entity/wd:Q535?_escaped_fragment_="
+  url: "https://inventaire.io/entity/wd:Q535?_escaped_fragment_=&agent=sentinel&__refresh=true"
   tests:
     content: (res)->
       /Victor\sHugo/.test res.body
 
 
 list.couchReplication =
-  url: "#{CONFIG.db.fullHost()}/_active_tasks"
+  url: "#{CONFIG.db.fullHost()}/_active_tasks?agent=sentinel"
   tests:
     allDbs: (res)->
       res.body.length is dbsNum
@@ -44,7 +46,7 @@ secondsToMs = (sec)-> sec * 1000
 
 
 list.invWdq =
-  url: 'http://localhost:5353/claim?p=P50&q=Q692'
+  url: 'http://localhost:5353/claim?p=P50&q=Q692&agent=sentinel'
   tests:
     content: (res)->
       res.body.items.length >= 198
