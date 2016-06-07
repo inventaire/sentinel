@@ -16,8 +16,8 @@ module.exports = (label, targetData, alert)->
   breq.get url
   .then (res)->
     { statusCode } = res
-    unless res.statusCode is status
-      _.warn res.body, 'res'
+    unless statusCode is status or statusCode is 304
+      _.warn res.body, "#{label} res"
       throw statusError res
 
     passTests tests, res
