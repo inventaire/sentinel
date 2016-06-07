@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+logs=./logs
+mkdir -p $logs
+forever -c node_modules/coffee-script/bin/coffee -a -o $logs/sentinel -e $logs/error $1 ./sentinel.coffee

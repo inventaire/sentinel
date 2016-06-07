@@ -1,3 +1,0 @@
-logs=./logs
-mkdir -p $logs
-aeternum -o $logs/sentinel -e $logs/error -- ./scripts/start

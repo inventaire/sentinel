@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./scripts/start",
-    "daemon-start": "./scripts/daemon-start",
-    "reload": "touch reload.coffee"
+    "daemon": "./scripts/forever start",
+    "restart": "./scripts/forever restart",
+    "stop": "./scripts/forever stop"
   },
   "keywords": [
     "services",
