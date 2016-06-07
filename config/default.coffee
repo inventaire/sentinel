@@ -1,6 +1,8 @@
 module.exports =
   checkInterval: 5*60*1000
-  aliveConfirmationInterval: 24*60*60*1000
+  aliveConfirmationTime:
+    hour: 12
+    minute: 0
   freeMobile:
     user: 12345678
     pass: 'freepwd'
