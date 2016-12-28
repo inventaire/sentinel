@@ -44,10 +44,16 @@ list.wikidataSubsetSearchEngine =
       res.body.hits.total > 2500
 
 list.maxlathPaper =
-  url: "http://maxlath.eu/articles/paper-ethical-marketing/part-1/"
+  url: 'http://maxlath.eu/articles/paper-ethical-marketing/part-1/'
   tests:
     content: (res)->
       /neoliberal\srevolution/.test res.body
+
+list.jingo =
+  url: 'https://wiki.inventaire.io/wiki/Home'
+  tests:
+    content: (res)->
+      /Welcome/.test res.body
 
 dbUpToDate = (db)->
   not _.expired secondsToMs(db.updated_on), 5*60*1000
